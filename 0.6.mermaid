@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: user create a new note 
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    
+
+    server -->>browser: STATE 201:{"message":"note created"}
+    Note left of server: {content: "tamarindo", date: "2025-02-22T19:29:23.355Z"}
+    Note left of server: the browser remain on the same page without refresh and don't make more requests HTTPS
+    Note left of browser: browser displays the note on the page 
