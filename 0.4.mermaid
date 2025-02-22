@@ -3,8 +3,11 @@ config:
   theme: forest
 ---
 sequenceDiagram
+    participant user
     participant browser
     participant server
+
+    user->>browser: user create a new note
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
@@ -24,5 +27,7 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: [{content: "arroz", date: "2025-02-22T16:07:28.906Z"}]
+    server-->>browser: [{content: "note content", date: "2025-02-22T16:07:28.906Z"}]
     deactivate server
+
+    browser->>user: the brower displays the note in the page
